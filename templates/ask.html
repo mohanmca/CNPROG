@@ -8,7 +8,12 @@
         <script type='text/javascript' src='/content/js/jquery.validate.pack.js'></script>
         <script type='text/javascript' src='/content/js/wmd/showdown.js'></script>
         <script type='text/javascript' src='/content/js/wmd/wmd.js'></script>
+
+        <script type="text/javascript" src="https://www.google.com/jsapi?key=ABQIAAAAr_iqAzPrkahViph81dUa2hQtE9UOZIh7DOhmJpkN5B5rm9wvqxS9i8HsrVfs3q1UX1MtOgd8px4eDA"></script>
+
+        
         <link rel="stylesheet" type="text/css" href="/content/js/wmd/wmd.css" />
+        
         <script type="text/javascript">
         $().ready(function(){
             //set current module button style
@@ -52,7 +57,41 @@
             lanai.highlightSyntax();
 
         });
+        
+        
+        
         </script>
+        
+        
+        <script type="text/javascript">
+    
+          // Load the Google Transliterate API
+          google.load("elements", "1", {
+                packages: "transliteration"
+              });
+    
+          function onLoad() {
+            var options = {
+                sourceLanguage:
+                    google.elements.transliteration.LanguageCode.ENGLISH,
+                destinationLanguage:
+                    [google.elements.transliteration.LanguageCode.TAMIL],
+                shortcutKey: 'ctrl+g',
+                transliterationEnabled: true
+            };
+    
+            // Create an instance on TransliterationControl with the required
+            // options.
+            var control =
+                new google.elements.transliteration.TransliterationControl(options);
+    
+            // Enable transliteration in the textbox with id
+            // 'transliterateTextarea'.
+            control.makeTransliteratable(['id_title', 'editor', 'id_tags']);
+          }
+          google.setOnLoadCallback(onLoad);
+        </script>
+        
 {% endblock %}
 
 {% block content %}
