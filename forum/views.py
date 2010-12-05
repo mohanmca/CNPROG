@@ -333,9 +333,13 @@ def question(request, id):
     answers = answers.select_related(depth=1)
 
     favorited = question.has_favorite_by_user(request.user)
-    question_vote = question.votes.select_related().filter(user=request.user)
-    if question_vote is not None and question_vote.count() > 0:
-        question_vote = question_vote[0]
+    requested_user = request.user
+   
+    question_vote = []
+    if requested_user.is_authenticated():
+        question_vote = question.votes.select_related().filter(user=request.user)
+        if question_vote is not None and question_vote.count() > 0:
+            question_vote = question_vote[0]
 
     user_answer_votes = {}
     for vote in question.get_user_votes_in_answers(request.user):

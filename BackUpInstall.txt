@@ -1,0 +1,12 @@
+1. Download automysqlbackup.sh and place it into your /etc/cron.daily directory or your home directory.
+
+2. Edit (at least) the following lines :- 
+USERNAME=dbuser (The user must have at least select privileges to the databases) PASSWORD=password
+DBNAMES="DB1 DB2 DB3" (make sure to keep the quotes " " otherwise it won't work)
+
+3. Make the file executable :- chmod u+rwx
+
+4. Create the following directory./backups
+
+5. That's it.. Now you can run it using the command line "./automysqlbackup.sh" or if it is in /etc/cron.daily it will run each day when cron runs.
+

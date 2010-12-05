@@ -13,7 +13,7 @@ LOGIN_URL = '/%s%s' % (ugettext('account/'), ugettext('signin/'))
 
 #EMAIL AND ADMINS
 ADMINS = (
-    ('CNProg team', 'team@cnprog.com'),
+    ('Vina team', 'team@vina.com'),
 )
 MANAGERS = ADMINS
 
