@@ -343,6 +343,8 @@ def register(request):
             output = validation_email_sent(request)
             set_email_validation_message(user_) #message set after generating view
             return output
+        elif user_ == None:
+            pass
         elif user_.is_authenticated():
             return HttpResponseRedirect('/')
         else:
