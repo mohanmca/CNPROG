@@ -1,7 +1,6 @@
 <!-- template footer.html -->
 {% load extra_tags %}
 {% load i18n %}
-<!-- 页面底部开始： -->
     <div id="ground">
         <div class="footerLinks" >
             <a href="/about">{% trans "about" %}</a><span class="link-separator"> |</span>
@@ -19,15 +18,17 @@
       </p>
 	  <p id="licenseLogo"><img src="/content/images/cc-wiki.png" title="Creative Commons: Attribution - Share Alike" alt="cc-wiki" width="50" height="68" /></p>
 	</div>
-	<!-- 页面底部结束： -->
         <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-            </script>
-            <script type="text/javascript">
-            try {
-            var pageTracker = _gat._getTracker({{ settings.GOOGLE_ANALYTICS_KEY }});
-            pageTracker._trackPageview();
-            } catch(err) {}
+        
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1543273-3']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
         </script>
-<!-- end template footer.html -->
+    <!-- end template footer.html -->
